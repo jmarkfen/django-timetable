@@ -1,0 +1,32 @@
+## Sequence
+
+py -m venv
+
+venv\Scipts\activate
+
+py -m pip 
+
+    install django
+
+    freeze > requirements.txt
+
+django-admin startproject timetable .
+
+py manage.py 
+
+    migrate
+ 
+    createsuperuser
+
+    runserver
+
+django-admin startapp ???
+
+
+
+## Ideas
+
+- use table/cards
+- sort by time
+- filters
+- add, edit/delete
