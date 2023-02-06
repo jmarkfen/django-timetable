@@ -1,2 +1,3 @@
-# Final Project - Django School Timetable
+# Django School Timetable
+
 Time table generator for school classes.
