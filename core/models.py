@@ -8,14 +8,14 @@ class Professor(models.Model):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    middle_initial = models.CharField(max_length=50)
+    middle_initial = models.CharField(max_length=2)
 
     class Meta:
         verbose_name = _("professor")
         verbose_name_plural = _("professors")
 
     def __str__(self):
-        return self.name
+        return self.last_name + ', ' + self.first_name + ' ' + self.middle_initial + '.'
 
     def get_absolute_url(self):
         return reverse("professor_detail", kwargs={"pk": self.pk})
@@ -51,7 +51,7 @@ class Subject(models.Model):
         verbose_name_plural = _("subjects")
 
     def __str__(self):
-        return self.name
+        return self.subject_code + ' - ' + self.subject_description
 
     def get_absolute_url(self):
         return reverse("subject_detail", kwargs={"pk": self.pk})
@@ -76,7 +76,7 @@ class Schedule(models.Model):
         ('SA', 'Saturday'),
         ('S', 'Sunday'),
     ]
-    days = models.CharField(max_length=50, choices=DAYS_OF_WEEK)
+    day = models.CharField(max_length=50, choices=DAYS_OF_WEEK)
     start_time = models.TimeField()
     end_time = models.TimeField()
 
@@ -85,7 +85,7 @@ class Schedule(models.Model):
         verbose_name_plural = _("schedules")
 
     def __str__(self):
-        return self.name
+        return self.subject.subject_code + ' - ' + self.professor.last_name
 
     def get_absolute_url(self):
         return reverse("schedule_detail", kwargs={"pk": self.pk})
