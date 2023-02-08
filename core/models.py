@@ -85,7 +85,7 @@ class Schedule(models.Model):
         verbose_name_plural = _("schedules")
 
     def __str__(self):
-        return self.subject.subject_code + ' - ' + self.professor.last_name
+        return self.subject.subject_code + ' - ' + self.professor.last_name + ' (' + self.day + ')'
 
     def get_absolute_url(self):
         return reverse("schedule_detail", kwargs={"pk": self.pk})
