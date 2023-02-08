@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.translation import gettext as _
+
 
 # Create your models here.
 
@@ -74,7 +76,7 @@ class Schedule(models.Model):
         ('SA', 'Saturday'),
         ('S', 'Sunday'),
     ]
-    days = models.CharField(max_length=50, choice=DAYS_OF_WEEK)
+    days = models.CharField(max_length=50, choices=DAYS_OF_WEEK)
     start_time = models.TimeField()
     end_time = models.TimeField()
 
