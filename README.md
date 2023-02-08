@@ -1,6 +1,6 @@
 # Django School Timetable
 
-Timetable generator for school classes.
+Timetable for school classes.
 
 ****
 
